@@ -1,0 +1,90 @@
+.dashboard {
+  display: flex;
+  gap: 24px;
+
+  .dealsContainer {
+    width: 100%;
+
+    @media (max-width: 1700px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media (max-width: 1366px) {
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 991px) {
+    gap: 16px;
+  }
+
+  &_inner {
+    width: 100%;
+
+    .dealsCard {
+      width: calc(21% - 20px);
+      min-width: 260px;
+
+      @media (max-width: 1366px) {
+        width: calc(33% - 20px);
+      }
+
+      @media (max-width: 991px) {
+        width: calc(50% - 20px);
+      }
+
+
+
+      @media (min-width : 425px) and (max-width:465px) {
+        width: 36% !important;
+        min-width: 0;
+      }
+
+      @media (min-width:465px) and (max-width : 500px) {
+        width: 37% !important;
+        min-width: 0;
+      }
+
+      @media (min-width:500px) and (max-width : 550px) {
+        width: 38.2% !important;
+        min-width: 0;
+      }
+
+      @media (min-width:550px) and (max-width : 650px) {
+        width: 38.6% !important;
+        min-width: 0;
+      }
+
+      @media (min-width:650px) and (max-width : 700px) {
+        width: 40.6% !important;
+        min-width: 0;
+      }
+
+      @media (min-width:700px) and (max-width : 750px) {
+        width: 41.6% !important;
+        min-width: 0;
+      }
+
+      @media (min-width:750px) and (max-width : 767px) {
+        width: 41.9% !important;
+        min-width: 0;
+      }
+
+
+      @media (min-width: 767px) and (max-width: 826px) {
+        min-width: 230px !important;
+      }
+
+      @media (max-width:425px) {
+        width: 100%;
+        min-width: 0;
+
+
+      }
+
+      // h2 {
+      //   color: var(--dark1);
+      // }
+    }
+  }
+}
