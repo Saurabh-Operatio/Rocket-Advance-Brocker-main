@@ -113,15 +113,18 @@ export default function Login() {
             {
               value: "broker",
               label: "Broker of Record",
+              disabled:true
             },
             {
               value: "agent",
               label: "Agent",
+              disabled:true
 
             },
             {
               value: "Investor",
               label: "Investor",
+              disabled:true
             },
           ]}
         />
