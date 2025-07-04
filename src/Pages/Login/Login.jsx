@@ -121,11 +121,11 @@ export default function Login() {
               disabled:true
 
             },
-            {
-              value: "Investor",
-              label: "Investor",
-              disabled:true
-            },
+            // {
+            //   value: "Investor",
+            //   label: "Investor",
+            //   disabled:true
+            // },
           ]}
         />
       </div>
