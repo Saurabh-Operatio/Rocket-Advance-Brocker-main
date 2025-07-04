@@ -1,12 +1,16 @@
 import React from "react";
 import "./ContactUs.scss";
 export default function ContactUs() {
-  return (
+   return (
     <div className="contactUs">
-      <div>Contact Us</div>
-      <p style={{ marginBottom: 22 }}>Schedule your Brokerage Lunch & Learns.</p>
-      <p className="linkText">info@rocketadvance.ca</p>
-      <p>1-800-518-3577</p>
+      <div>Contact US</div>
+      <p style={{ marginBottom: 22 }}>Get your commission advance today!</p>
+      <p className="linkText">
+        <a href="mailto:info@rocketadvance.ca">info@rocketadvance.ca</a>
+      </p>
+      <p>
+        <a href="tel:18005183577">1-800-518-3577</a>
+      </p>
     </div>
   );
 }
