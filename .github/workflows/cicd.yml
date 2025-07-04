@@ -6,7 +6,7 @@ on:
       - development
 
 jobs:
-  build-and-push:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,3 +27,26 @@ jobs:
         run: |
           docker build -t saurabh2025operatiomarketing/rocket-advance-brocker-main:${TAG} .
           docker push saurabh2025operatiomarketing/rocket-advance-brocker-main:${TAG}
+
+      - name: Deploy on Server via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /home/ubuntu/rocket
+
+            # Update only 'frontend-brocker' image tag in docker-compose.yaml
+            awk -v tag="${TAG}" '
+              $0 ~ /container_name: frontend-brocker/ { found=1 }
+              found && $0 ~ /image:/ {
+                print "    image: saurabh2025operatiomarketing/rocket-advance-brocker-main:" tag
+                found=0
+                next
+              }
+              { print }
+            ' docker-compose.yaml > docker-compose.tmp && mv docker-compose.tmp docker-compose.yaml
+
+            docker-compose pull frontend-brocker
+            docker-compose up -d --no-deps --force-recreate frontend-brocker
