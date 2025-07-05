@@ -30,7 +30,7 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  const [role, setRole] = useState(searchParams.get("role") || "Broker");
+  const [role, setRole] = useState(searchParams.get("role") || "broker-admin");
 
   //onChange function
   const handleChange = (e) => {
